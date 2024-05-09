@@ -6,12 +6,16 @@ export class MapMemory extends CacheMemoryAbstract {
         super();
         this.memory = new Map();
     }
-    public set(key: string, value: any) {
+    public set(key: string, value: unknown) {
         this.memory.set(key, value);
     }
 
-    public get(key: string): any {
+    public get(key: string): unknown {
         return this.memory.get(key);
+    }
+
+    public getAll(): unknown {
+        return Array.from(this.memory.values());
     }
 
     public has(key: string): boolean {
